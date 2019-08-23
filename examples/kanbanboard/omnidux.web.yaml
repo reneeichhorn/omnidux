@@ -1,0 +1,67 @@
+target:
+  platform: web
+  engine: wasm
+
+repos:
+  - type: local
+    source: ./repos/board
+  - type: local
+    source: ./repos/core
+  - type: local
+    source: ./repos/page
+
+scopes:
+  - repo: page
+    scopes:
+      - repo: board
+      - repo: core
+
+application:
+  threads:
+    - type: webworker
+      name: worker1
+      driver: worker-direct
+
+    - type: webworker
+      name: worker2
+      driver: worker-direct
+
+    - type: main
+      name: main 
+      driver: direct
+
+  repos:
+    - repo: sys/scheduler
+      target: * 
+      min: all
+      max: all
+
+    - repo: sys/load-analyzer
+      target: * 
+      min: all
+      max: all
+
+    - repo: sys/debug-connector
+      target: *
+      min: all
+      max: all
+      debug: true
+
+    - repo: sys/renderer
+      target: main
+
+    - repo: page
+      target: main
+
+    - repo: core
+      min: 2
+      target:
+        - worker1
+        - worker2
+
+    - repo: board
+      min: 1
+      max: 2
+      target:
+        - worker1
+        - worker2

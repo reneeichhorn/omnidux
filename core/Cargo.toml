@@ -1,0 +1,8 @@
+[package]
+name = "omnidux-core"
+version = "0.1.0"
+authors = ["Rene Eichhorn <rene.eichhorn1@gmail.com>"]
+
+[dependencies]
+serde = "1.0"
+serde_yaml = "0.8"

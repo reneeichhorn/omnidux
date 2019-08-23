@@ -1,0 +1,71 @@
+target:
+#  platform: iOS
+  platform: test
+  engine: native
+
+repos:
+  - type: local
+    source: ./repos/board
+  - type: local
+    source: ./repos/core
+  - type: local
+    source: ./repos/page
+
+scopes:
+  - repo: page
+    scopes:
+      - repo: board
+      - repo: core
+
+threads:
+  - type: thread
+    name: worker1
+    driver: default
+
+  - type: thread
+    name: worker2
+    driver: default 
+
+  - type: thread
+    name: shadow
+    driver: default
+
+  - type: main
+    name: main 
+    driver: direct
+
+setup:
+  - repo: sys/scheduler
+    target: * 
+    min: all
+    max: all
+
+  - repo: sys/load-analyzer
+    target: * 
+    min: all
+    max: all
+
+  - repo: sys/debug-connector
+    target: *
+    min: all
+    max: all
+    debug: true
+
+  - repo: sys/shadow-renderer
+    target: shadow
+
+  - repo: sys/ios-renderer
+    target: main
+
+  - repo: page
+    target: main
+
+  - repo: core
+    target:
+      - worker1
+      - worker2
+
+  - repo: board
+    target:
+      - worker1
+      - worker2
