@@ -1,0 +1,12 @@
+[package]
+name = "omnidux_sys_shadow_renderer"
+version = "0.1.0"
+authors = ["Rene Eichhorn <rene.eichhorn@shopgate.com>"]
+edition = "2018"
+
+[dependencies]
+stretch = "0.3.2"
+omnidux_core = { path = "../../core" }
+
+[dev-dependencies]
+insta = "0.11.0"

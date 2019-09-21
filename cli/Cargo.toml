@@ -1,0 +1,10 @@
+[package]
+name = "cli"
+version = "0.1.0"
+authors = ["Rene Eichhorn <rene.eichhorn1@gmail.com>"]
+edition = "2018"
+
+[dependencies]
+omnidux_core = { path = "../core" }
+clap = "2.33.0"
+

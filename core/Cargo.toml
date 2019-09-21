@@ -1,8 +1,23 @@
 [package]
-name = "omnidux-core"
+name = "omnidux_core"
 version = "0.1.0"
 authors = ["Rene Eichhorn <rene.eichhorn1@gmail.com>"]
+edition = "2018"
 
 [dependencies]
-serde = "1.0"
+proc-macro-hack = "0.5.9"
+futures-preview = { version = "=0.3.0-alpha.18", features = ["compat"] }
+static_assertions = "0.3.4"
+cargo-toml-builder = "0.3"
+serde = { version = "1.0", features = ["derive"] }
 serde_yaml = "0.8"
+evmap = "6.0.1"
+omnidux_macros = { path = "../macros" }
+
+[dev-dependencies]
+criterion = "0.3"
+omnidux_sys_shadow_renderer = { path = "../sys/shadow-renderer" }
+
+[[bench]]
+name = "bench"
+harness = false

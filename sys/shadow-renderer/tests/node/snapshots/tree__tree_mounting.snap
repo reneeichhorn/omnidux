@@ -1,0 +1,61 @@
+---
+source: tests/node/tree.rs
+expression: resolved
+---
+Node {
+    styles: Styles {
+        flex_basis: Auto,
+        flex_grow: 0.0,
+        flex_shrink: 1.0,
+        width: Points(
+            600.0,
+        ),
+        height: Points(
+            400.0,
+        ),
+    },
+    layout: Layout {
+        width: 600.0,
+        height: 400.0,
+        x: 0.0,
+        y: 0.0,
+    },
+    children: [
+        Node {
+            styles: Styles {
+                flex_basis: Points(
+                    0.0,
+                ),
+                flex_grow: 1.0,
+                flex_shrink: 1.0,
+                width: Auto,
+                height: Auto,
+            },
+            layout: Layout {
+                width: 300.0,
+                height: 400.0,
+                x: 0.0,
+                y: 0.0,
+            },
+            children: [],
+        },
+        Node {
+            styles: Styles {
+                flex_basis: Points(
+                    0.0,
+                ),
+                flex_grow: 1.0,
+                flex_shrink: 1.0,
+                width: Auto,
+                height: Auto,
+            },
+            layout: Layout {
+                width: 300.0,
+                height: 400.0,
+                x: 300.0,
+                y: 0.0,
+            },
+            children: [],
+        },
+    ],
+}

@@ -1,6 +1,8 @@
+name: omnidux-example-kanbanboard
+
 target:
 #  platform: iOS
-  platform: test
+  platform: ios 
   engine: native
 
 repos:
@@ -20,52 +22,47 @@ scopes:
 threads:
   - type: thread
     name: worker1
-    driver: default
+    driver: mpsc-fifo
 
   - type: thread
     name: worker2
-    driver: default 
+    driver: mpsc-fifo
 
   - type: thread
     name: shadow
-    driver: default
+    driver: mpsc-fifo
 
   - type: main
     name: main 
     driver: direct
 
 setup:
-  - repo: sys/scheduler
-    target: * 
-    min: all
-    max: all
+#  - repo: sys/load-analyzer
+#    target: "*" 
+#    min: all
+#    max: all
 
-  - repo: sys/load-analyzer
-    target: * 
-    min: all
-    max: all
-
-  - repo: sys/debug-connector
-    target: *
-    min: all
-    max: all
-    debug: true
+#  - repo: sys/debug-connector
+#    target: "*"
+#    min: all
+#    max: all
+#    debug: true
 
   - repo: sys/shadow-renderer
     target: shadow
 
-  - repo: sys/ios-renderer
-    target: main
+#  - repo: sys/ios-renderer
+#    target: main
 
-  - repo: page
-    target: main
+#  - repo: page
+#    target: main
 
-  - repo: core
-    target:
-      - worker1
-      - worker2
+#  - repo: core
+#    target:
+#      - worker1
+#      - worker2
 
-  - repo: board
-    target:
-      - worker1
-      - worker2
+#  - repo: board
+#    target:
+#      - worker1
+#      - worker2
