@@ -11,6 +11,7 @@ cssparser = "0.25.9"
 proc-macro2 = "1.0.3"
 proc-macro-hack = "0.5.9"
 quote = "1.0.2"
+syn = { version = "1.0.5", features = ["parsing", "proc-macro"] }
 
 [lib]
 proc-macro = true

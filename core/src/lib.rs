@@ -24,3 +24,6 @@ use proc_macro_hack::proc_macro_hack;
 
 #[proc_macro_hack]
 pub use omnidux_macros::stylesheet;
+
+#[proc_macro_hack]
+pub use omnidux_macros::component;
